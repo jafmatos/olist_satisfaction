@@ -1,3 +1,4 @@
+from sklearn.ensemble import HistGradientBoostingClassifier
 from project_olist.config import RANDOM_STATE
 from sklearn.ensemble import RandomForestClassifier
 from project_olist.config import NUMERICAL_FEATURES
@@ -38,7 +39,6 @@ numerical_pipeline = Pipeline(
 
 column_transformer = ColumnTransformer(
     transformers=[
-        ("feature_engineering", feature_transformer, NUMERICAL_FEATURES),
         ("numerical_pipeline", numerical_pipeline, NUMERICAL_FEATURES)
     ],
     remainder="drop"
@@ -46,7 +46,9 @@ column_transformer = ColumnTransformer(
 
 pipeline = Pipeline(
     steps=[
+        ("feature_engineering", feature_transformer),
         ("preprocessor", column_transformer),
-        ("model", RandomForestClassifier(class_weight="balanced", random_state=RANDOM_STATE))
+        # ("model", RandomForestClassifier(class_weight="balanced", random_state=RANDOM_STATE))
+        ("model", HistGradientBoostingClassifier(class_weight="balanced", random_state=RANDOM_STATE))
     ]
 )

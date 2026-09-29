@@ -3,12 +3,17 @@ from pathlib import Path
 ROOT_DIR = Path(__file__).resolve().parents[2]
 RAW_DATA_DIR = ROOT_DIR / "dataset" / "raw"
 PROCESSED_DATA_DIR = ROOT_DIR / "dataset" / "processed"
-MODEL_PATH = ROOT_DIR / "models" / "model_v1.pkl"
+MODEL_PATH = ROOT_DIR / "models" / "model_v2.pkl"
 
 NUMERICAL_FEATURES = [
     "dias_para_entrega_estimada",
     "dias_para_postagem",
     "dias_para_entrega",
+    "preco_total_frete",
+    # "media_volume_vendas_produtos",
+    # "media_avaliacao_produtos",
+    # "latitude",
+    # "longitude"
 ]
 
 CATEGORICAL_FEATURES = [

@@ -7,7 +7,7 @@ from project_olist.config import PROCESSED_DATA_DIR
 import pandas
 from sklearn.model_selection import train_test_split
 
-dataframe = pandas.read_csv(PROCESSED_DATA_DIR / "pedidos_com_avaliacao.csv")
+dataframe = pandas.read_csv(PROCESSED_DATA_DIR / "pedidos_com_metricas.csv")
 X = dataframe[NUMERICAL_FEATURES + CATEGORICAL_FEATURES]
 y = dataframe[TARGET_FEATURE]
 
